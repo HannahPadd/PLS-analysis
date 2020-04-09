@@ -15,4 +15,5 @@ class Book:
     def loan_book(self):
         self.available = False
         return "je bent het boek nu aan het lenen"
-
+    
+    
