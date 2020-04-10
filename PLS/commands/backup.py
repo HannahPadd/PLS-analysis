@@ -21,8 +21,3 @@ class databse:
         json.dump(toSave, database)
 
     def load():
-
-    
-
-
-
