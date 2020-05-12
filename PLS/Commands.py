@@ -1,4 +1,5 @@
-
+from User import User
+from Book import Book
 class Commands:
 
     def __init__(self, userInput, addbook, removebook):
@@ -6,9 +7,7 @@ class Commands:
         self.addbook = "addbook"
         self.removebook = "removebook"
 
-    if (self.addbook == "addbook"):
-        book = input("name of the book")
-        bookid = 
-        
+    def AddBook(Self):
+        bookInput = input("give the name of the book ")
 
     
