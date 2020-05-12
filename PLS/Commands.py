@@ -7,6 +7,8 @@ class Commands:
         self.removebook = "removebook"
 
     if (self.addbook == "addbook"):
+        book = input("name of the book")
+        bookid = 
         
 
     
