@@ -6,7 +6,7 @@ class Book:
         self.title = title
         self.available = True
 
-    def CreateBook(self):
+    def SaveBook(self):
         
         saveBook = {
             "BookAuthor" : self.author,
