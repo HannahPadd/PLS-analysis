@@ -17,7 +17,7 @@ class Book:
         saveBook = json.dumps(saveBook) 
         database = open("bookDatabase.json", "w")
         try:
-            database.write(saveBook)
+            database.update(saveBook)
             database.close()
             print("the book has been saved")
         except:
