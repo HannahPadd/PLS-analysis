@@ -10,15 +10,15 @@ class Commands:
     def AddBook(self):
         bookInput = input("""
 
-        give the name of the book:
+give the name of the book:
 
-        """)
+""")
         bookAuthor = input("""
-        give the name of the writer of the book
-        
-        """)
+give the name of the writer of the book
+
+""")
         book1 = Book(bookAuthor, bookInput)
-        print(book1)
+        Book.SaveBook(book1)
 
 
     

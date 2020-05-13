@@ -18,15 +18,15 @@ Press 3 to Lend a book out:
 Press 4 to return a book: 
 Press 5 to Search for a book:
 """)
-    if userInput == 1:
+    if userInput == "1":
         print ("1")
     if userInput == "2":
         Commands.AddBook(0)
-    if userInput == 3:
+    if userInput == "3":
         print("3")
-    if userInput == 4:
+    if userInput == "4":
         print("4")
-    if userInput == 5:
+    if userInput == "5":
         print("5")
     
     
