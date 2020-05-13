@@ -20,5 +20,9 @@ give the name of the writer of the book
         book1 = Book(bookAuthor, bookInput)
         Book.SaveBook(book1)
 
+    def  AddUser(self):
+        userInput = input("""
+gi""")
+
 
     
