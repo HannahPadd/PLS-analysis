@@ -1,5 +1,5 @@
 import json
-class user:
+class Customer:
     def __init__ (self, userName, userID, userFirstName, userLastName):
         self.userName = userName
         self.userID = userID
