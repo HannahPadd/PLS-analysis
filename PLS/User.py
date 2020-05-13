@@ -1,18 +1,16 @@
 import json
 class User:
-    def __init__ (self, userName, userID, userFirstName, userLastName):
+    def __init__ (self, userName, userFirstName, userLastName):
         self.userName = userName
-        self.userID = userID
         self.userFirstName = userFirstName
         self.userLastName = userLastName
 
-    def CreateUser(self):
+    def SaveUser(self):
         
-        saveCustomer = {
+        saveUser = {
             "userName" : self.userName,
             "userLastName" : self.userLastName,
             "userFirstName" : self.userFirstName,
-            "userID" : self.userID
         }
         
         saveUser = json.dumps(saveUser)

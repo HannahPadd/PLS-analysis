@@ -14,15 +14,23 @@ give the name of the book:
 
 """)
         bookAuthor = input("""
-give the name of the writer of the book
+give the name of the writer of the book:
 
 """)
-        book1 = Book(bookAuthor, bookInput)
-        Book.SaveBook(book1)
+        book = Book(bookAuthor, bookInput)
+        Book.SaveBook(book)
 
-    def  AddUser(self):
-        userInput = input("""
-gi""")
-
+    def AddUser(self):
+        username = input("""
+Please enter your username:
+""")
+        firstname = input(""" 
+Please enter your first name:
+""")
+        lastname = input("""
+Please enter your last name:
+""")
+        user = User(username, firstname, lastname)
+        User.SaveUser(user)
 
     

@@ -17,7 +17,7 @@ Press 4 to return a book:
 Press 5 to Search for a book:
 """)
     if userInput == "1":
-        print ("1")
+        Commands.AddUser(0)
     if userInput == "2":
         Commands.AddBook(0)
     if userInput == "3":
