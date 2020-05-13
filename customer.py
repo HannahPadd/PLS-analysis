@@ -14,4 +14,12 @@ class user:
             "userFirstName" : self.userFirstName,
             "userID" : self.userID
         }
-        #json.dump(CreateUser)
+        
+        saveCustomer = json.dumps(saveCustomer)
+        database = open("database.json", "w")
+        try:
+            database.write(saveCustomer)
+            database.close
+            print("the user has been saved")
+        except:
+            print("the user couldn't be saved")
