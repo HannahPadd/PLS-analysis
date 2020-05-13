@@ -16,8 +16,13 @@ class Backup:
 
 
     def restoreBackup(self):
-        os.rename("booksold.json", "books.json")
-        os.rename("customerold.json", "customer.json")
+        try:
+            os.rename("booksold.json", "books.json")
+            os.rename("customerold.json", "customer.json")
+        except:
+            print("The backup could not be restored.")
+            return
+        print("The backup was succesfully restored")
 
 
 
