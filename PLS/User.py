@@ -8,7 +8,7 @@ class User:
 
     def CreateUser(self):
         
-        saveCustomer = {
+        saveUser = {
             "userName" : self.userName,
             "userLastName" : self.userLastName,
             "userFirstName" : self.userFirstName,

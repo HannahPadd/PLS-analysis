@@ -15,13 +15,16 @@ class Book:
         }
         
         saveBook = json.dumps(saveBook) 
-        database = open("bookDatabase.json", "w")
-        try:
-            database.update(saveBook)
-            database.close()
-            print("the book has been saved")
-        except:
-            database.close()
-            print("the book couldn't be saved")
+        database = open("bookDatabase.json", "r+")
+    #try:
+        data = json.loads(database)
+        data.update(saveBook)
+        data = json.dumps(data)
+        database.write(data)
+        database.close()
+        return "the book has been saved"
+    #except:
+        database.close()
+        return "the book couldn't be saved"
     
     
