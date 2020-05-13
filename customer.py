@@ -19,7 +19,8 @@ class user:
         database = open("database.json", "w")
         try:
             database.write(saveCustomer)
-            database.close
+            database.close()
             print("the user has been saved")
         except:
+            database.close()
             print("the user couldn't be saved")
