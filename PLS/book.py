@@ -4,5 +4,22 @@ class Book:
         self.title = title
         self.available = True
 
+    def CreateBook(self):
+        
+        saveBook = {
+            "BookAuthor" : self.author,
+            "bookTitle" : self.title,
+            "bookAvailable" : self.available
+        }
+        
+        saveBook = json.dumps(saveBook) 
+        database = open("bookDatabase.json", "w")
+        try:
+            database.write(saveBook)
+            database.close()
+            print("the book has been saved")
+        except:
+            database.close()
+            print("the book couldn't be saved")
     
     
