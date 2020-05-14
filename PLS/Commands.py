@@ -23,10 +23,10 @@ class Commands:
     def BookReturn(self):
         bookReturn = input("please enter the book you like to return:> ")
         
-        
+
     def BookLend(self):
         bookLend = input("please enter the book you like to lend:> ")
-        Lend(bookLend)
+        
 
     def searchBook(self):
         searchBook = input("please enter the book you like to search:> ")
