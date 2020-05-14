@@ -1,14 +1,16 @@
 import book 
 import json
 
-class Lend():
-    def Lend():
+class Lend:
+    def BookLend(self):
         if bookAvailable == True:
             bookAvailable = False
             print("You are now borrowing this book")
         else: 
             print("Book is not avaliable")
-    def Return():
+
+
+    def BookReturn(self):
         if bookAvailable == False:
             bookAvailable = True
             print("You have now raturned this book")
