@@ -1,10 +1,24 @@
 import json
-class User:
-    def __init__ (self, userName, userFirstName, userLastName):
-        self.userName = userName
-        self.userFirstName = userFirstName
-        self.userLastName = userLastName
+import csv
 
+class User:
+    def __init__ (self, Gender, NameSet, GivenName, Surname, StreetAdress, ZipCode, City, EmailAdress, Username, TelephoneNumber):
+        self.gender = Gender
+        self.nameSet = NameSet
+        self.givenName = GivenName
+        self.Surname = Surname
+        self.streetAdress = StreetAdress
+        self.zipCode = ZipCode
+        self.city = City
+        self.emailAdress = EmailAdress
+        self.userName = Username
+        self.telephoneNumber = TelephoneNumber
+
+    def listUsers(self):
+        users = open("FakeNameSet20.csv", "r")
+        print(users)
+
+"""
     def SaveUser(self):
         
         saveUser = {
@@ -22,3 +36,4 @@ class User:
         except:
             database.close()
             print("the user couldn't be saved")
+"""
