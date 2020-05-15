@@ -2,7 +2,7 @@ import json
 import csv
 
 
-class User():
+class User:
     def __init__(self, Gender, NameSet, GivenName, Surname, StreetAdress, ZipCode, City, EmailAdress, Username, TelephoneNumber):
         self.gender = Gender
         self.nameSet = NameSet

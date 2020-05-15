@@ -1,6 +1,7 @@
 from User import User
-from book import Book
-from lend import Lend
+from Book import Book
+from Lend import Lend
+from Search import Search
 
 
 class Commands:
@@ -12,7 +13,7 @@ class Commands:
         book = Book(bookInput, bookAuthor)
         Book.SaveBook(book)
 
-    def SaveUser(self):
+    def AddUser(self):
         Gender = input("Whats is your gender:> ")
         NameSet = input("Whats is your nameSet:> ")
         GivenName = input("Whats is your givenName:> ")
@@ -28,14 +29,12 @@ class Commands:
         User.SaveUser(user)
 
     def BookReturn(self):
-        bookReturn = input("please enter the book you like to return:> ")
+        Lend.BookReturn(0)
         
-
     def BookLend(self):
-        bookLend = input("please enter the book you like to lend:> ")
+        Lend.BookLend(0)
         
-
-    def searchBook(self):
-        searchBook = input("please enter the book you like to search:> ")
+    def SearchBook(self):
+        Search.Search(0)
         
         
