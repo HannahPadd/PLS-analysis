@@ -15,24 +15,24 @@ class User():
         self.userName = Username
         self.telephoneNumber = TelephoneNumber
 
-    def listUsers():
+    def listUsers(self):
         users = open("FakeNameSet20.csv", "r")
         print(users)
 
 
-    def SaveUser():
+    def SaveUser(self):
         with open('FakeNameSet20.csv', mode = 'w', newline = '') as users:
             addingUser = csv.writer(users)
-        gender = input("Whats is your gender")
-        nameSet = input("Whats is your nameSet")
-        givenName = input("Whats is your givenName")
+        Gender = input("Whats is your gender")
+        NameSet = input("Whats is your nameSet")
+        GivenName = input("Whats is your givenName")
         Surname = input("Whats is your Surname")
-        streetAdress = input("Whats is your streetAdress")
-        zipCode = input("Whats is your zipCode")
-        city = input("Where do you life")
-        emailAdress = input("Whats is your emailAdress")
-        userName = input("Whats is your userName")
-        telephoneNumber = input("Whats is your telephoneNumber")
+        StreetAdress = input("Whats is your streetAdress")
+        ZipCode = input("Whats is your zipCode")
+        City = input("Where do you life")
+        EmailAdress = input("Whats is your emailAdress")
+        Username = input("Whats is your userName")
+        TelephoneNumber = input("Whats is your telephoneNumber")
 
         users.writerow([Gender, NameSet, GivenName, Surname, StreetAdress, ZipCode, City, EmailAdress, Username, TelephoneNumber])
 
