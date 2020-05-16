@@ -1,5 +1,3 @@
-from book import Book
-from User import User
 from Commands import Commands
 import json
 
@@ -21,11 +19,11 @@ Press 5 to Search for a book:
     if userInput == "2":
         Commands.AddBook(0)
     if userInput == "3":
-        print("3")
+        Commands.BookReturn(0)
     if userInput == "4":
-        print("4")
+        Commands.BookLend(0)
     if userInput == "5":
-        print("5")
+        Commands.SearchBook(0)
     
     
 

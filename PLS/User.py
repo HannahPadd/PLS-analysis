@@ -2,7 +2,7 @@ import json
 import csv
 
 
-class User():
+class User:
     def __init__(self, Gender, NameSet, GivenName, Surname, StreetAdress, ZipCode, City, EmailAdress, Username, TelephoneNumber):
         self.gender = Gender
         self.nameSet = NameSet
@@ -15,28 +15,17 @@ class User():
         self.userName = Username
         self.telephoneNumber = TelephoneNumber
 
-    def listUsers():
+    def listUsers(self):
         users = open("FakeNameSet20.csv", "r")
         print(users)
 
 
-    def SaveUser():
+    def SaveUser(self):
         with open('FakeNameSet20.csv', mode = 'w', newline = '') as users:
             addingUser = csv.writer(users)
-        gender = input("Whats is your gender")
-        nameSet = input("Whats is your nameSet")
-        givenName = input("Whats is your givenName")
-        Surname = input("Whats is your Surname")
-        streetAdress = input("Whats is your streetAdress")
-        zipCode = input("Whats is your zipCode")
-        city = input("Where do you life")
-        emailAdress = input("Whats is your emailAdress")
-        userName = input("Whats is your userName")
-        telephoneNumber = input("Whats is your telephoneNumber")
+        users.writerow([self.gender, self.nameSet, self.givenName, self.Surname, self.streetAdress, self.zipCode, self.city, self.emailAdress, self.userName, self.telephoneNumber])
 
-        users.writerow([Gender, NameSet, GivenName, Surname, StreetAdress, ZipCode, City, EmailAdress, Username, TelephoneNumber])
-
-User.SaveUser
+#User.SaveUser
 """
     def SaveUser(self):
         
