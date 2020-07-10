@@ -1,7 +1,7 @@
 import Book 
 import json
 
-class Lend:
+class lend:
     def BookLend(self):
         if bookAvailable == True:
             bookAvailable = False

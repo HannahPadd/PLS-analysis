@@ -1,6 +1,6 @@
 from User import User
-import Book
-import Lend
+from book import Book
+from Lend import lend
 import Search
 
 
@@ -29,10 +29,10 @@ class Commands:
         User.SaveUser(user)
 
     def BookReturn(self):
-        Lend.BookReturn(0)
+        lend.BookReturn(0)
         
     def BookLend(self):
-        Lend.BookLend(0)
+        lend.BookLend(0)
         
     def SearchBook(self):
         Search.Search(0)
