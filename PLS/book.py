@@ -7,14 +7,7 @@ class Book:
         self.available = True
 
     def SaveBook(self):
-        
-        saveBook = {
-            "BookAuthor" : self.author,
-            "bookTitle" : self.title,
-            "bookAvailable" : self.available
-        }
-        
-        saveBook = json.dumps(saveBook) 
+        saveBook = json.dumps(self.__dict__)
         database = open("bookDatabase.json", "r+")
         try:
             data = json.loads(database)
