@@ -35,10 +35,10 @@ class Commands:
         User.SaveUser(user)
 
     def BookReturn(self):
-        lend.BookReturn(0)
+        Lend.BookReturn(0)
         
     def BookLend(self):
-        lend.BookLend(0)
+        Lend.BookLend(0)
         
     def SearchBook(self):
         Search.Search(0)
