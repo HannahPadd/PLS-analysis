@@ -21,8 +21,8 @@ class User:
 
 
     def SaveUser(self):
-        with open('FakeNameSet20.csv', mode = 'w') as FakeName_file:
-            saveUsers = csv.writer(FakeName_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        with open('FakeNameSet20.csv', 'a+', newline='') as FakeName_file:
+            saveUsers = csv.writer(FakeName_file)
             saveUsers.writerow([self.gender, self.nameSet, self.givenName, self.Surname, self.streetAdress, self.zipCode, self.city, self.emailAdress, self.userName, self.telephoneNumber])
 
 
