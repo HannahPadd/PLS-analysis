@@ -1,6 +1,6 @@
 from User import User
 from book import Book
-from Lend import lend
+from Lend import Lend
 import Search
 
 
