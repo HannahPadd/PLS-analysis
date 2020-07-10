@@ -7,10 +7,16 @@ import Search
 class Commands:
 
     def AddBook(self):
-        bookInput = input("what's the name of the book:> ")
-        bookAuthor = input("Who is the author:> ")
+        Author = input("Who is the author:> ")
+        Country = input("What is the country:> ")
+        ImageLink = input("What is the imagelink:> ")
+        Language = input("What is the language:> ")
+        Link = input("What is the link:> ")
+        Pages = input("How many pages has the book:> ")
+        Title = input("what's the name of the book:> ")
+        Year = input("What is the year of realease of the book:> ")
 
-        book = Book(bookInput, bookAuthor)
+        book = Book(Author, Country, ImageLink, Language, Link, Pages,  Title, Year)
         Book.SaveBook(book)
 
     def AddUser(self):
