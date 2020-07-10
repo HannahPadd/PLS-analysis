@@ -26,7 +26,7 @@ class Commands:
         Surname = input("Whats is your Surname:> ")
         StreetAdress = input("Whats is your streetAdress:> ")
         ZipCode = input("Whats is your zipCode:> ")
-        City = input("Where do you life:> ")
+        City = input("Where do you live:> ")
         EmailAdress = input("Whats is your emailAdress:> ")
         Username = input("Whats is your userName:> ")
         TelephoneNumber = input("Whats is your telephoneNumber:> ")
