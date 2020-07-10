@@ -1,7 +1,7 @@
 from User import User
-from Book import Book
-from Lend import Lend
-from Search import Search
+import Book
+import Lend
+import Search
 
 
 class Commands:
@@ -37,4 +37,5 @@ class Commands:
     def SearchBook(self):
         Search.Search(0)
         
-        
+
+
