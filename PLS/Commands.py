@@ -3,7 +3,6 @@ from book import Book
 
 
 
-
 class Commands:
 
     def AddBook(self):
