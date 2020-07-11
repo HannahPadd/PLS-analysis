@@ -60,7 +60,7 @@ class Book:
         
     
     def LookupBook(self):
-        with open("booksset1.json", 'r') as bookDatabase:
+        with open("booksset.json", 'r') as bookDatabase:
             bookDatabase = json.load(bookDatabase)
         searchType = input("""do you want to search via:
         - title
