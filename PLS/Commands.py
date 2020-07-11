@@ -38,7 +38,11 @@ class Commands:
         Name = input("Input the name of the person who lend the book:> ")
         book = input("Input the name of the book that was lend:> ")
         Book.ReturnBook(0, book,Name)
-        
+
+    def BookLend(self):
+        Name = input("Input the name of the person that wants to lend the book:> ")
+        book = input("Input the name of the book that the person wants to lend:> ")
+        Book.LendBook(0, book,Name)    
 
         
     def SearchBook(self):

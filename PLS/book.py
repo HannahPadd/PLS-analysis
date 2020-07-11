@@ -15,21 +15,37 @@ class Book:
         
 
     def ReturnBook(self, Book, User):
-        reader = csv.reader(open('Books.csv', 'r'))
-        for row in reader:
-            if row[0] == Book and row[2] == User:
-                row[2] = None
-                print(row[2])
-                print(row[0])
-                
-            
-  
-                
+        with open("Books.csv", "rt", newline='') as ReadFile:
+            lines = list(csv.reader(ReadFile))
 
-        #with open('BookAvailable.csv', 'a+', newline='') as Books:
-         #   books = csv.writer(Books)
-         #   books.writerow([self.gender, self.nameSet, self.givenNa])
+        with open("Books.csv", "wt", newline='') as WriteFile:
+            done = False
+            Writer = csv.writer(WriteFile)
+            for row in lines:
+                if done == False:
+                    if row[0] == Book and row[2] == User.lower():
+                        row[2] = None
+                        done = True
+                        Writer.writerow(row)
+                    else:
+                        Writer.writerow(row)
+    
+    def LendBook(self, Book, User):
+        with open("Books.csv", "rt", newline='') as ReadFile:
+            lines = list(csv.reader(ReadFile))
 
+        with open("Books.csv", "wt", newline='') as WriteFile:
+            done = False
+            Writer = csv.writer(WriteFile)
+            for row in lines:
+                if done == False:
+                    if row[0] == Book and row[2] == None:
+                        row[2] = User.lower()
+                        done = True
+                        Writer.writerow(row)
+                    else:
+                        Writer.writerow(row)
+                
     def SaveBook(self):
         saveBook = json.dumps(self.__dict__)
         database = open("bookDatabase.json", "r+")
