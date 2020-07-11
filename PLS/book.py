@@ -15,12 +15,15 @@ class Book:
         
 
     def ReturnBook(self, Book, User):
-        with open('Books.csv') as csv_file:
-            reader = csv.reader(open(csv_file, 'r'))
-            for row in reader:
-                if row[0] == Book and row[2] == User:
-                    print("hi")
-            print("no book found") 
+        reader = csv.reader(open('Books.csv', 'r'))
+        for row in reader:
+            if row[0] == Book and row[2] == User:
+                row[2] = None
+                print(row[2])
+                print(row[0])
+                
+            
+  
                 
 
         #with open('BookAvailable.csv', 'a+', newline='') as Books:
