@@ -15,9 +15,9 @@ class Commands:
         Pages = input("How many pages has the book:> ")
         Title = input("what's the name of the book:> ")
         Year = input("What is the year of realease of the book:> ")
-
+        ISBN = input("what is the ISBN of the book:> ")
         book = Book(Author, Country, ImageLink, Language, Link, Pages,  Title, Year)
-        Book.SaveBook(book)
+        Book.SaveBook(book, ISBN)
 
     def AddUser(self):
         Gender = input("Whats is your gender:> ")

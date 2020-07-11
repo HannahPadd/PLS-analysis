@@ -52,19 +52,12 @@ class Book:
                 else:
                     Writer.writerow(row)
                 
-    def SaveBook(self):
-        saveBook = json.dumps(self.__dict__)
-        database = open("bookDatabase.json", "r+")
-        try:
-            data = json.loads(database)
-            data.update(saveBook)
-            data = json.dumps(data)
-            database.write(data)
-            database.close()
-            return "the book has been saved"
-        except:
-            database.close()
-            return "the book couldn't be saved"
+    def SaveBook(self, ISBN):
+        #saveBook = json.dumps(self.__dict__)
+        with open('Books.csv', 'a+', newline='') as books:
+            saveBooks = csv.writer(books)
+            saveBooks.writerow([self.title.lower(), ISBN, None])
+        
     
     def LookupBook(self):
         with open("booksset1.json", 'r') as bookDatabase:
