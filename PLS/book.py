@@ -14,6 +14,12 @@ class Book:
         self.available = True
         
 
+    def ImportFromDB(self):
+        with open("booksset.json", 'r+', encoding='utf-8') as importBookDatabase:
+            importBookDatabase = json.load(importBookDatabase)
+        with open("bookDatabase.json", 'w', encoding='utf=8') as bookDatabase:
+            json.dump(importBookDatabase, bookDatabase)
+
     def ReturnBook(self, Book, User):
         with open("Books.csv", "rt", newline='') as ReadFile:
             lines = list(csv.reader(ReadFile))
@@ -54,13 +60,20 @@ class Book:
                 
     def SaveBook(self, ISBN):
         #saveBook = json.dumps(self.__dict__)
+        """
         with open('Books.csv', 'a+', newline='') as books:
             saveBooks = csv.writer(books)
             saveBooks.writerow([self.title.lower(), ISBN, None])
+            """
+        with open("bookDatabase.json", 'a+', newline='') as bookDatabase:
+            bookDatabase = json.load(bookDatabase)
+            entry = {}
+
+
         
     
     def LookupBook(self):
-        with open("booksset.json", 'r') as bookDatabase:
+        with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
             bookDatabase = json.load(bookDatabase)
         searchType = input("""do you want to search via:
         - title

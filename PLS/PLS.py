@@ -1,6 +1,7 @@
 from Commands import Commands
 import json
 import Backup
+from book import Book
 
 programEnd = 0
 bookDatabase = open("bookDatabase.json", "w+")
@@ -28,5 +29,7 @@ Press 6 to Back up:
         Commands.SearchBook(0)
     if userInput == "6":
         Backup.BackUp()
+    if userInput == "7":
+        Book.ImportFromDB(0)
     
     

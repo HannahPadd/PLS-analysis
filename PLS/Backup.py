@@ -27,6 +27,6 @@ def BackUp():
     location = os.path.dirname(os.path.realpath(__file__)) 
     os.chdir(location)
     shutil.copy("userDatabase.json",location + "\Back_up")
-    shutil.copy("booksset.json", location + "\Back_up")
+    shutil.copy("bookDatabase.json", location + "\Back_up")
     shutil.copy("FakeNameSet20.csv", location + "\Back_up")
     shutil.copy("bookDatabase.json", location + "\Back_up")
