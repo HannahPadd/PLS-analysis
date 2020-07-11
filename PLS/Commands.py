@@ -1,6 +1,6 @@
 from User import User
 from book import Book
-from Lend import Lend
+
 import Search
 
 
@@ -35,13 +35,18 @@ class Commands:
         User.SaveUser(user)
 
     def BookReturn(self):
-        Lend.BookReturn(0)
-        
+        Name = input("Input the name of the person who lend the book:> ")
+        book = input("Input the name of the book that was lend:> ")
+        Book.ReturnBook(0, book,Name)
+
     def BookLend(self):
-        Lend.BookLend(0)
+        Name = input("Input the name of the person that wants to lend the book:> ")
+        book = input("Input the name of the book that the person wants to lend:> ")
+        Book.LendBook(0, book,Name)    
+
         
     def SearchBook(self):
-        Search.Search(0)
+        Book.LookupBook(0)
         
 
 

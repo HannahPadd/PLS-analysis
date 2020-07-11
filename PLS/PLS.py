@@ -11,8 +11,8 @@ while(programEnd == 0):
     userInput = input("""
 Press 1 to create an customer:
 Press 2 to create a book:
-Press 3 to Lend a book out:
-Press 4 to return a book: 
+Press 3 to return a book out:
+Press 4 to lend a book: 
 Press 5 to Search for a book:
 Press 6 to Back up:
 """)
