@@ -41,7 +41,7 @@ class Commands:
         Lend.BookLend(0)
         
     def SearchBook(self):
-        Search.Search(0)
+        Book.LookupBook(0)
         
 
 
