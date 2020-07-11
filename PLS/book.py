@@ -1,4 +1,5 @@
 import json
+import csv
 
 class Book:
     def __init__(self, author, country, imageLink, language, link, pages, title, year):
@@ -13,7 +14,18 @@ class Book:
         self.available = True
         
 
+    def ReturnBook(self, Book, User):
+        with open('Books.csv') as csv_file:
+            reader = csv.reader(open(csv_file, 'r'))
+            for row in reader:
+                if row[0] == Book and row[2] == User:
+                    print("hi")
+            print("no book found") 
+                
 
+        #with open('BookAvailable.csv', 'a+', newline='') as Books:
+         #   books = csv.writer(Books)
+         #   books.writerow([self.gender, self.nameSet, self.givenNa])
 
     def SaveBook(self):
         saveBook = json.dumps(self.__dict__)

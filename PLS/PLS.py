@@ -10,8 +10,8 @@ while(programEnd == 0):
     userInput = input("""
 Press 1 to create an customer:
 Press 2 to create a book:
-Press 3 to Lend a book out:
-Press 4 to return a book: 
+Press 3 to return a book out:
+Press 4 to lend a book: 
 Press 5 to Search for a book:
 """)
     if userInput == "1":
@@ -21,7 +21,7 @@ Press 5 to Search for a book:
     if userInput == "3":
         Commands.BookReturn(0)
     if userInput == "4":
-        Commands.BookLend(0)
+        print("not functional")
     if userInput == "5":
         Commands.SearchBook(0)
     
