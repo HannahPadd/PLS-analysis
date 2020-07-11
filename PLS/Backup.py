@@ -22,10 +22,11 @@ import os
 #            print("The backup could not be restored.")
 #            return
 #        print("The backup was succesfully restored")
-        
+location = "/PLS-analysis/PLS"
 def BackUp():
-    os.chdir("C:\\Users\eigenaar\Documents\school\PLS-analysis\PLS\\")
-    shutil.copy("userDatabase.json", "C:\\Users\eigenaar\Documents\school\PLS-analysis\PLS\Back_up\\")
-    shutil.copy("booksset.json", "C:\\Users\eigenaar\Documents\school\PLS-analysis\PLS\Back_up\\")
-    shutil.copy("FakeNameSet20.csv", "C:\\Users\eigenaar\Documents\school\PLS-analysis\PLS\Back_up\\")
-    shutil.copy("bookDatabase.json", "C:\\Users\eigenaar\Documents\school\PLS-analysis\PLS\Back_up\\")
+    location = os.path.dirname(os.path.realpath(__file__)) 
+    os.chdir(location)
+    shutil.copy("userDatabase.json",location + "\Back_up")
+    shutil.copy("booksset.json", location + "\Back_up")
+    shutil.copy("FakeNameSet20.csv", location + "\Back_up")
+    shutil.copy("bookDatabase.json", location + "\Back_up")
