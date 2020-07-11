@@ -87,11 +87,20 @@ class Book:
 
         if (searchType == "author"):
             searchKey = input("Enter the author:> ")
+            bookList = []
             for i in bookDatabase:
-                if (bookDatabase[searchCount]["author"] == searchKey):
-                    print("I don't know what to do here")
+                if (searchCount == len(bookDatabase)):
+                    break
+                elif (bookDatabase[searchCount]["author"] == searchKey):
+                    bookList.append(str(bookDatabase[searchCount]["title"]))
+                    searchCount += 1
                 else:
                     searchCount += 1
+
+            if (len(bookList) > 0):
+                print("There are books from this author in our library:\n".join(bookList))
+            else:
+                print("There aren't any books by this author in our library")
 
         if (searchType == "isbn"):
             searchKey = input("Enter the ISBN:> ")
