@@ -22,13 +22,15 @@ class Book:
             done = False
             Writer = csv.writer(WriteFile)
             for row in lines:
-                if done == False:
-                    if row[0] == Book and row[2] == User.lower():
+                if row[0] == Book and row[2] == User.lower():
+                    if done == False:
                         row[2] = None
                         done = True
                         Writer.writerow(row)
                     else:
                         Writer.writerow(row)
+                else:
+                    Writer.writerow(row)
     
     def LendBook(self, Book, User):
         with open("Books.csv", "rt", newline='') as ReadFile:
@@ -38,13 +40,15 @@ class Book:
             done = False
             Writer = csv.writer(WriteFile)
             for row in lines:
-                if done == False:
-                    if row[0] == Book and row[2] == None:
+                if row[0] == Book and row[2] == "":
+                    if done == False:
                         row[2] = User.lower()
                         done = True
                         Writer.writerow(row)
                     else:
                         Writer.writerow(row)
+                else:
+                    Writer.writerow(row)
                 
     def SaveBook(self):
         saveBook = json.dumps(self.__dict__)

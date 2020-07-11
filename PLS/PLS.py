@@ -21,7 +21,7 @@ Press 5 to Search for a book:
     if userInput == "3":
         Commands.BookReturn(0)
     if userInput == "4":
-        print("not functional")
+        Commands.BookLend(0)
     if userInput == "5":
         Commands.SearchBook(0)
     
