@@ -15,6 +15,7 @@ Press 3 to return a book out:
 Press 4 to lend a book: 
 Press 5 to Search for a book:
 Press 6 to Back up:
+Press 7 to Restore from backup:
 """)
     if userInput == "1":
         Commands.AddUser(0)
