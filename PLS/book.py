@@ -31,6 +31,8 @@ class Book:
                         Writer.writerow(row)
                 else:
                     Writer.writerow(row)
+            if done == False:
+                print("book not found")
     
     def LendBook(self, Book, User):
         with open("Books.csv", "rt", newline='') as ReadFile:
