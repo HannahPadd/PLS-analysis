@@ -1,5 +1,6 @@
 from Commands import Commands
 import json
+import Backup
 
 programEnd = 0
 bookDatabase = open("bookDatabase.json", "w+")
@@ -13,6 +14,7 @@ Press 2 to create a book:
 Press 3 to Lend a book out:
 Press 4 to return a book: 
 Press 5 to Search for a book:
+Press 6 to Back up:
 """)
     if userInput == "1":
         Commands.AddUser(0)
@@ -24,6 +26,7 @@ Press 5 to Search for a book:
         Commands.BookLend(0)
     if userInput == "5":
         Commands.SearchBook(0)
-    
+    if userInput == "6":
+        Backup.BackUp()
     
     
