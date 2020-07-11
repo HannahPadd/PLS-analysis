@@ -17,8 +17,9 @@ class Book:
     def ImportFromDB(self):
         with open("booksset.json", 'r+', encoding='utf-8') as importBookDatabase:
             importBookDatabase = json.load(importBookDatabase)
-        with open("bookDatabase.json", 'w', encoding='utf=8') as bookDatabase:
-            json.dump(importBookDatabase, bookDatabase)
+        bookDatabase = open("bookDatabase.json", 'a+', encoding='utf=8')
+        json.dump(importBookDatabase, bookDatabase)
+        bookDatabase.close()
 
     def ReturnBook(self, Book, User):
         with open("Books.csv", "rt", newline='') as ReadFile:
