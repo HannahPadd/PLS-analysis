@@ -15,6 +15,7 @@ Press 4 to lend a book:
 Press 5 to Search for a book:
 Press 6 to Back up:
 Press 7 to retrieve back up:
+Press 8 to load books from the booksset:
 Write done to close program:
 """)
     if userInput == "1":
