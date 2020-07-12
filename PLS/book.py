@@ -15,9 +15,9 @@ class Book:
         
 
     def ImportFromDB(self):
-        with open("booksset.json", 'r+', encoding='utf-8') as importBookDatabase:
+        with open("booksset.json", 'r+') as importBookDatabase:
             importBookDatabase = json.load(importBookDatabase)
-        bookDatabase = open("bookDatabase.json", 'w+', encoding='utf=8')
+        bookDatabase = open("bookDatabase.json", 'w+')
         json.dump(importBookDatabase, bookDatabase)
         bookDatabase.close()
 
@@ -74,6 +74,7 @@ class Book:
                 print("book not found or user not found")
                 
     def SaveBook(self, ISBN):
+        searchCount = 0
         with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
             bookDatabase = json.load(bookDatabase)
         for i in bookDatabase:
@@ -81,18 +82,21 @@ class Book:
                 with open('Books.csv', 'a+', newline='') as books:
                     saveBooks = csv.writer(books)
                     saveBooks.writerow([self.title.lower(), ISBN, None])
-                return
-        with open("bookDatabase.json", 'a+') as bookDatabase2:
-            bookDatabase2 = json.load(bookDatabase2)
-            entry = {
-                "author" : self.author,
-                "country" : self.country,
-                "language" : self.language,
-                "pages" : self.pages,
-                "title" : self.title,
-                "year" : self.year
-            }
-            json.dump(entry, bookDatabase2)
+                    return
+            else:
+                searchCount += 1
+        
+        bookDatabase2 = open("bookDatabase.json" , "r+")
+        bookDatabase2 = json.load(bookDatabase2)
+        entry = {
+            "author" : self.author,
+            "country" : self.country,
+            "language" : self.language,
+            "pages" : self.pages,
+            "title" : self.title,
+            "year" : self.year
+        }
+        json.dump(entry, bookDatabase2)
 
         
         with open('Books.csv', 'a+', newline='') as books:
