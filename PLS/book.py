@@ -11,7 +11,6 @@ class Book:
         self.pages = pages
         self.title = title
         self.year = year
-        self.available = True
         
 
     def ImportFromDB(self):
@@ -20,6 +19,9 @@ class Book:
         bookDatabase = open("bookDatabase.json", 'a+', encoding='utf=8')
         json.dump(importBookDatabase, bookDatabase)
         bookDatabase.close()
+        
+        f = open("Books.csv", "w+")
+        f.close()
 
     def ReturnBook(self, Book, User):
         with open("Books.csv", "rt", newline='') as ReadFile:
@@ -29,8 +31,9 @@ class Book:
             done = False
             Writer = csv.writer(WriteFile)
             for row in lines:
-                if row[0] == Book and row[2] == User.lower():
+                if row[0] == Book and row[1] == User.lower():
                     if done == False:
+                        print(Book + "is being returned by " + User.lower())
                         row[2] = None
                         done = True
                         Writer.writerow(row)
@@ -48,7 +51,6 @@ class Book:
             for row in name:
                 if row[2] == User:
                     correctUser = True
-        
             if correctUser == False:
                 print("there was no user with the name " + User)
                 return
@@ -61,9 +63,10 @@ class Book:
             done = False
             Writer = csv.writer(WriteFile)
             for row in lines:
-                if row[0] == Book and row[2] == "":
+                if row[0] == Book and row[1] == "":
                     if done == False:
-                        row[2] = User.lower()
+                        print(Book + "is being lend to " + User.lower())
+                        row[1] = User.lower()
                         done = True
                         Writer.writerow(row)
                     else:
@@ -73,14 +76,14 @@ class Book:
             if done == False:
                 print("book not found or user not found")
                 
-    def SaveBook(self, ISBN):
+    def SaveBook(self):
         with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
             bookDatabase = json.load(bookDatabase)
         for i in bookDatabase:
             if (bookDatabase[0]["title"] == self.title):
                 with open('Books.csv', 'a+', newline='') as books:
                     saveBooks = csv.writer(books)
-                    saveBooks.writerow([self.title.lower(), ISBN, None])
+                    saveBooks.writerow([self.title.lower(),  None])
                 return
         with open("bookDatabase.json", 'a+', newline='') as bookDatabase2:
             bookDatabase2 = json.load(bookDatabase2)
@@ -89,7 +92,7 @@ class Book:
         
         with open('Books.csv', 'a+', newline='') as books:
             saveBooks = csv.writer(books)
-            saveBooks.writerow([self.title.lower(), ISBN, None])
+            saveBooks.writerow([self.title.lower(), None])
             
         
 
@@ -102,7 +105,6 @@ class Book:
         searchType = input("""do you want to search via:
         - title
         - author
-        - ISBN
         Type the word for the search key
         """)
         searchType.lower()
@@ -134,11 +136,4 @@ class Book:
             else:
                 print("There aren't any books by this author in our library")
 
-        if (searchType == "isbn"):
-            searchKey = input("Enter the ISBN:> ")
-            for i in bookDatabase:
-                if (bookDatabase[searchCount]["isbn"] == searchKey):
-                    print("This book is in our library")
-                else:
-                    searchCount += 1
-            print("We do not have this book in our library")
+        
