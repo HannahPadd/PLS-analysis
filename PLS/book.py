@@ -17,7 +17,7 @@ class Book:
     def ImportFromDB(self):
         with open("booksset.json", 'r+', encoding='utf-8') as importBookDatabase:
             importBookDatabase = json.load(importBookDatabase)
-        bookDatabase = open("bookDatabase.json", 'a+', encoding='utf=8')
+        bookDatabase = open("bookDatabase.json", 'w+', encoding='utf=8')
         json.dump(importBookDatabase, bookDatabase)
         bookDatabase.close()
 
@@ -68,9 +68,17 @@ class Book:
                     saveBooks = csv.writer(books)
                     saveBooks.writerow([self.title.lower(), ISBN, None])
                 return
-        with open("bookDatabase.json", 'a+', newline='') as bookDatabase2:
+        with open("bookDatabase.json", 'a+') as bookDatabase2:
             bookDatabase2 = json.load(bookDatabase2)
-            entry = {}
+            entry = {
+                "author" : self.author,
+                "country" : self.country,
+                "language" : self.language,
+                "pages" : self.pages,
+                "title" : self.title,
+                "year" : self.year
+            }
+            json.dump(entry, bookDatabase2)
 
         
         with open('Books.csv', 'a+', newline='') as books:
@@ -88,7 +96,6 @@ class Book:
         searchType = input("""do you want to search via:
         - title
         - author
-        - ISBN
         Type the word for the search key
         """)
         searchType.lower()
