@@ -76,7 +76,7 @@ class Book:
             if done == False:
                 print("book not found or user not found")
                 
-    def SaveBook(self, ISBN):
+    def SaveBook(self):
         searchCount = 0
         with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
             bookDatabase = json.load(bookDatabase)
@@ -84,13 +84,12 @@ class Book:
             if (bookDatabase[0]["title"] == self.title):
                 with open('Books.csv', 'a+', newline='') as books:
                     saveBooks = csv.writer(books)
-                    saveBooks.writerow([self.title.lower(), ISBN, None])
+                    saveBooks.writerow([self.title.lower(), None])
                     return
             else:
                 searchCount += 1
         
-        bookDatabase2 = open("bookDatabase.json" , "r+")
-        bookDatabase2 = json.load(bookDatabase2)
+        bookDatabase2 = open("bookDatabase.json" , "a+", encoding='utf-8')
         entry = {
             "author" : self.author,
             "country" : self.country,
