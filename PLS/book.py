@@ -24,6 +24,17 @@ class Book:
         f.close()
 
     def ReturnBook(self, Book, User):
+        correctUser = False
+        with open("FakeNameSet20.csv", "rt", newline='') as Users:
+            name = list(csv.reader(Users))
+            for row in name:
+                if row[2] == User.lower():
+                    correctUser = True
+            if correctUser == False:
+                print("there was no user with the name " + User)
+                return
+                    
+
         with open("Books.csv", "rt", newline='') as ReadFile:
             lines = list(csv.reader(ReadFile))
 
@@ -34,7 +45,7 @@ class Book:
                 if row[0] == Book and row[1] == User.lower():
                     if done == False:
                         print(Book + "is being returned by " + User.lower())
-                        row[2] = None
+                        row[1] = ""
                         done = True
                         Writer.writerow(row)
                     else:
@@ -65,7 +76,7 @@ class Book:
             for row in lines:
                 if row[0] == Book and row[1] == "":
                     if done == False:
-                        print(Book + "is being lend to " + User.lower())
+                        print(Book + " is being lend to " + User.lower())
                         row[1] = User.lower()
                         done = True
                         Writer.writerow(row)
