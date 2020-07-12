@@ -14,7 +14,7 @@ class Book:
         
 
     def ImportFromDB(self):
-        with open("booksset.json", 'r+') as importBookDatabase:
+        with open("booksset.json", 'r') as importBookDatabase:
             importBookDatabase = json.load(importBookDatabase)
         bookDatabase = open("bookDatabase.json", 'w+')
         json.dump(importBookDatabase, bookDatabase)
@@ -78,10 +78,10 @@ class Book:
                 
     def SaveBook(self):
         searchCount = 0
-        with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
-            bookDatabase = json.load(bookDatabase)
+        with open("bookDatabase.json", 'r', encoding='utf-8') as bookDB:
+            bookDatabase = json.load(bookDB)
         for i in bookDatabase:
-            if (bookDatabase[0]["title"] == self.title):
+            if (bookDatabase[searchCount]["title"] == self.title):
                 with open('Books.csv', 'a+', newline='') as books:
                     saveBooks = csv.writer(books)
                     saveBooks.writerow([self.title.lower(), None])
@@ -89,16 +89,20 @@ class Book:
             else:
                 searchCount += 1
         
-        bookDatabase2 = open("bookDatabase.json" , "a+", encoding='utf-8')
-        entry = {
-            "author" : self.author,
-            "country" : self.country,
-            "language" : self.language,
-            "pages" : self.pages,
-            "title" : self.title,
-            "year" : self.year
-        }
-        json.dump(entry, bookDatabase2)
+        with open("bookDatabase.json", 'r+') as bookDB:
+            bookDatabase = json.load(bookDB)
+            bookDB.seek(0)
+            bookDB.truncate(0)
+            entry = {
+                "author" : self.author,
+                "country" : self.country,
+                "language" : self.language,
+                "pages" : self.pages,
+                "title" : self.title,
+                "year" : self.year
+            }
+            bookDatabase[-1] = entry
+            bookDB.write(json.dumps(bookDatabase))
 
         
         with open('Books.csv', 'a+', newline='') as books:
