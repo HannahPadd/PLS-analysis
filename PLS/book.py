@@ -60,15 +60,26 @@ class Book:
                     Writer.writerow(row)
                 
     def SaveBook(self, ISBN):
-        #saveBook = json.dumps(self.__dict__)
-        """
-        with open('Books.csv', 'a+', newline='') as books:
-            saveBooks = csv.writer(books)
-            saveBooks.writerow([self.title.lower(), ISBN, None])
-            """
+        with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
+            bookDatabase = json.load(bookDatabase)
+        for i in bookDatabase:
+            if (bookDatabase[searchCount]["title"] == self.title):
+                with open('Books.csv', 'a+', newline='') as books:
+                    saveBooks = csv.writer(books)
+                    saveBooks.writerow([self.title.lower(), ISBN, None])
+                return
+            else:
+                searchCount += 1
         with open("bookDatabase.json", 'a+', newline='') as bookDatabase:
             bookDatabase = json.load(bookDatabase)
             entry = {}
+
+        
+        with open('Books.csv', 'a+', newline='') as books:
+            saveBooks = csv.writer(books)
+            saveBooks.writerow([self.title.lower(), ISBN, None])
+            
+        
 
 
         
