@@ -66,9 +66,9 @@ class Book:
             saveBooks = csv.writer(books)
             saveBooks.writerow([self.title.lower(), ISBN, None])
             """
-        with open("bookDatabase.json", 'a+', newline='') as bookDatabase:
-            bookDatabase = json.load(bookDatabase)
-            entry = {}
+        bookDatabase = open("bookDatabase.json", 'a+', encoding='utf=8')
+        bookDatabase = json.load(bookDatabase)
+        entry = {}
 
 
         
