@@ -39,9 +39,21 @@ class Book:
                 else:
                     Writer.writerow(row)
             if done == False:
-                print("book not found")
+                print("book not found or user not found")
     
     def LendBook(self, Book, User):
+        correctUser = False
+        with open("FakeNameSet20.csv", "rt", newline='') as Users:
+            name = list(csv.reader(Users))
+            for row in name:
+                if row[2] == User:
+                    correctUser = True
+        
+            if correctUser == False:
+                print("there was no user with the name " + User)
+                return
+                    
+
         with open("Books.csv", "rt", newline='') as ReadFile:
             lines = list(csv.reader(ReadFile))
 
@@ -58,6 +70,8 @@ class Book:
                         Writer.writerow(row)
                 else:
                     Writer.writerow(row)
+            if done == False:
+                print("book not found or user not found")
                 
     def SaveBook(self, ISBN):
         with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
