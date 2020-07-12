@@ -28,7 +28,7 @@ def BackUp():
         location = os.path.dirname(os.path.realpath(__file__)) 
         os.chdir(location)
         shutil.copy("Books.csv", location +  "\Back_up" )
-        shutil.copy("booksset.json", location + "\Back_up")
+        shutil.copy("bookDatabase.json", location + "\Back_up")
         shutil.copy("FakeNameSet20.csv", location + "\Back_up")
     except:
        print("Error could not back up pleas check files")
@@ -38,7 +38,7 @@ def retrieve_BackUp():
         location = os.path.dirname(os.path.realpath(__file__)) 
         os.chdir(location + "\Back_up")
         shutil.copy("Books.csv", location  )
-        shutil.copy("booksset.json", location  )
+        shutil.copy("bookDatabase.json", location  )
         shutil.copy("FakeNameSet20.csv", location )
 
     except:
