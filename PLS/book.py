@@ -14,7 +14,7 @@ class Book:
         
 
     def ImportFromDB(self):
-        with open("booksset.json", 'r+') as importBookDatabase:
+        with open("booksset.json", 'r') as importBookDatabase:
             importBookDatabase = json.load(importBookDatabase)
         bookDatabase = open("bookDatabase.json", 'w+')
         json.dump(importBookDatabase, bookDatabase)
@@ -24,6 +24,17 @@ class Book:
         f.close()
 
     def ReturnBook(self, Book, User):
+        correctUser = False
+        with open("FakeNameSet20.csv", "rt", newline='') as Users:
+            name = list(csv.reader(Users))
+            for row in name:
+                if row[2] == User.lower():
+                    correctUser = True
+            if correctUser == False:
+                print("there was no user with the name " + User)
+                return
+                    
+
         with open("Books.csv", "rt", newline='') as ReadFile:
             lines = list(csv.reader(ReadFile))
 
@@ -34,7 +45,7 @@ class Book:
                 if row[0] == Book and row[1] == User.lower():
                     if done == False:
                         print(Book + "is being returned by " + User.lower())
-                        row[2] = None
+                        row[1] = ""
                         done = True
                         Writer.writerow(row)
                     else:
@@ -65,7 +76,7 @@ class Book:
             for row in lines:
                 if row[0] == Book and row[1] == "":
                     if done == False:
-                        print(Book + "is being lend to " + User.lower())
+                        print(Book + " is being lend to " + User.lower())
                         row[1] = User.lower()
                         done = True
                         Writer.writerow(row)
@@ -76,30 +87,33 @@ class Book:
             if done == False:
                 print("book not found or user not found")
                 
-    def SaveBook(self, ISBN):
+    def SaveBook(self):
         searchCount = 0
-        with open("bookDatabase.json", 'r', encoding='utf-8') as bookDatabase:
-            bookDatabase = json.load(bookDatabase)
+        with open("bookDatabase.json", 'r', encoding='utf-8') as bookDB:
+            bookDatabase = json.load(bookDB)
         for i in bookDatabase:
-            if (bookDatabase[0]["title"] == self.title):
+            if (bookDatabase[searchCount]["title"] == self.title):
                 with open('Books.csv', 'a+', newline='') as books:
                     saveBooks = csv.writer(books)
-                    saveBooks.writerow([self.title.lower(), ISBN, None])
+                    saveBooks.writerow([self.title.lower(), None])
                     return
             else:
                 searchCount += 1
         
-        bookDatabase2 = open("bookDatabase.json" , "r+")
-        bookDatabase2 = json.load(bookDatabase2)
-        entry = {
-            "author" : self.author,
-            "country" : self.country,
-            "language" : self.language,
-            "pages" : self.pages,
-            "title" : self.title,
-            "year" : self.year
-        }
-        json.dump(entry, bookDatabase2)
+        with open("bookDatabase.json", 'r+') as bookDB:
+            bookDatabase = json.load(bookDB)
+            bookDB.seek(0)
+            bookDB.truncate(0)
+            entry = {
+                "author" : self.author,
+                "country" : self.country,
+                "language" : self.language,
+                "pages" : self.pages,
+                "title" : self.title,
+                "year" : self.year
+            }
+            bookDatabase[-1] = entry
+            bookDB.write(json.dumps(bookDatabase))
 
         
         with open('Books.csv', 'a+', newline='') as books:
